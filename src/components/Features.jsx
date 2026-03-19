@@ -1,11 +1,8 @@
 import { useEffect, useRef } from 'react';
-import {
-    Brain, Bell, Package, BarChart3, MessageSquare, Lock
-} from 'lucide-react';
 
 const features = [
     {
-        icon: <Brain className="w-7 h-7" />,
+        image: '/feat1.png',
         title: 'AI-Powered Expiry Tracking',
         description: "Our smart AI engine automatically tracks every medicine's expiry, learns restock patterns, and flags risks weeks in advance.",
         color: 'from-brand-500 to-brand-600',
@@ -13,7 +10,7 @@ const features = [
         delay: 'stagger-1',
     },
     {
-        icon: <Bell className="w-7 h-7" />,
+        image: '/feat2.png',
         title: 'Automated Smart Alerts',
         description: 'Receive instant SMS, email, and in-app notifications when medicines approach expiry — customizable for your timelines.',
         color: 'from-teal-500 to-teal-600',
@@ -21,7 +18,7 @@ const features = [
         delay: 'stagger-2',
     },
     {
-        icon: <Package className="w-7 h-7" />,
+        image: '/feat3.png',
         title: 'Intelligent Inventory',
         description: 'Manage stock levels with one-click updates, batch tracking, and automated reorder suggestions based on demand.',
         color: 'from-violet-500 to-violet-600',
@@ -29,7 +26,7 @@ const features = [
         delay: 'stagger-3',
     },
     {
-        icon: <BarChart3 className="w-7 h-7" />,
+        image: '/feat4.png',
         title: 'Analytics Dashboard',
         description: 'Rich visual reports on stock turnover, near-expiry losses, revenue impact, and category-wise performance insights.',
         color: 'from-orange-500 to-orange-600',
@@ -37,7 +34,7 @@ const features = [
         delay: 'stagger-4',
     },
     {
-        icon: <MessageSquare className="w-7 h-7" />,
+        image: '/feat5.png',
         title: 'Custom Notification Rules',
         description: 'Set personalized alert timelines — 30, 14, or 7 days before expiry. Multiple channels, zero missed alerts.',
         color: 'from-pink-500 to-pink-600',
@@ -45,7 +42,7 @@ const features = [
         delay: 'stagger-5',
     },
     {
-        icon: <Lock className="w-7 h-7" />,
+        image: '/feat6.png',
         title: 'Enterprise-Grade Security',
         description: 'Bank-level encryption, role-based access control, and automated backups keep your pharmacy data safe always.',
         color: 'from-green-500 to-green-600',
@@ -79,9 +76,14 @@ export default function Features() {
             <div className="max-w-7xl mx-auto px-6">
                 {/* Heading */}
                 <div className="animate-on-scroll text-center mb-16">
-                    <span className="text-sm font-semibold text-brand-600 bg-brand-50 border border-brand-100 rounded-full px-4 py-1.5 inline-block mb-4">
-                        Everything You Need
-                    </span>
+                    {/* Enhanced Tag */}
+                    <div className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-gradient-to-r from-brand-50 to-teal-50 border border-brand-200/50 shadow-sm mb-6">
+                        <div className="w-2 h-2 rounded-full bg-brand-500 animate-[pulse-slow_3s_ease-in-out_infinite]"></div>
+                        <span className="text-sm md:text-base font-bold text-transparent bg-clip-text bg-gradient-to-r from-brand-700 to-teal-700 uppercase tracking-wide">
+                            Everything You Need
+                        </span>
+                    </div>
+
                     <h2 className="section-heading">
                         Powerful Features for{' '}
                         <span className="gradient-text">Modern Pharmacies</span>
@@ -98,15 +100,13 @@ export default function Features() {
                             key={f.title}
                             className={`animate-on-scroll ${f.delay} feature-card group cursor-default`}
                         >
-                            {/* Icon */}
-                            <div className={`w-14 h-14 rounded-2xl ${f.bg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
-                                <div className={`bg-gradient-to-br ${f.color} bg-clip-text text-transparent`}>
-                                    {f.icon}
-                                </div>
+                            {/* Illustration Box replacing the vacant icon Box */}
+                            <div className="w-16 h-16 rounded-2xl bg-gray-50/50 border border-gray-100 flex items-center justify-center p-2 mb-6 group-hover:scale-110 group-hover:shadow-sm transition-all duration-300">
+                                <img src={f.image} alt={f.title} className="w-full h-full object-contain" />
                             </div>
 
                             {/* Content */}
-                            <h3 className="text-lg font-bold text-gray-900 mb-2 font-poppins group-hover:text-brand-700 transition-colors duration-200">
+                            <h3 className="text-xl font-bold text-gray-900 mb-2 font-poppins group-hover:text-brand-700 transition-colors duration-200">
                                 {f.title}
                             </h3>
                             <p className="text-gray-500 text-sm leading-relaxed">
